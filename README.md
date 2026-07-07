@@ -188,7 +188,7 @@ git push origin main
 
 ---
 
-## 🧪 Test Cases ใน ShipmentTest.java
+##  Test Cases ใน ShipmentTest.java
 
 ไฟล์ `src/test/java/com/example/ShipmentTest.java` มี test ครอบคลุมทุก Section:
 
@@ -232,3 +232,93 @@ git push origin main
 - [ ] `Failures: 0, Errors: 0`
 - [ ] `git push` ขึ้น GitHub แล้ว
 - [ ] ส่ง link repo ให้อาจารย์แล้ว
+
+---
+
+## 📸 แนบรูปผลลัพธ์ (Screenshots)
+
+### วิธีแนบรูป
+
+**Step 1** — สร้างโฟลเดอร์ `screenshots/` ใน repo
+
+```bash
+mkdir screenshots
+```
+
+**Step 2** — รัน `mvn test` แล้วถ่ายภาพหน้าจอผลลัพธ์
+
+ภาพที่ต้องถ่ายมี 2 ภาพ:
+
+```
+screenshots/
+├── mvn_test_result.png     ← ผลลัพธ์ mvn test (BUILD SUCCESS)
+└── program_output.png      ← ผลลัพธ์ javac + java (console output)
+```
+
+**Step 3** — ใส่รูปเข้า repo
+
+```bash
+git add screenshots/
+git commit -m "screenshot: แนบผลลัพธ์ mvn test และ program output"
+git push origin main
+```
+
+---
+
+### ภาพที่ 1 — ผลลัพธ์ mvn test
+
+รัน `mvn test` แล้วถ่ายภาพให้เห็น **ครบทั้งหมดนี้**:
+
+```
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.example.ShipmentTest
+✓ [S1] STANDARD 3.0 กก. ต้องได้ 120.00 บาท
+✓ [S1] EXPRESS 1.5 กก. ต้องได้ 150.00 บาท
+...
+[INFO] Tests run: X, Failures: 0, Errors: 0, Skipped: 0
+[INFO] BUILD SUCCESS                                        ← ต้องเห็นบรรทัดนี้
+```
+
+> ⚠️ ถ้าขึ้น `BUILD FAILURE` — ยังแก้ Bug ไม่ครบ ห้ามส่ง
+
+---
+
+### ภาพที่ 2 — ผลลัพธ์โปรแกรม (console output)
+
+รัน `javac` และ `java` แล้วถ่ายภาพให้เห็น **ผลลัพธ์ครบทุกบรรทัด**:
+
+```
+========================================
+  บริษัท        : SpeedEx Logistics
+  จำนวน Shipment : 5 รายการ
+========================================
+[TH001]  3.00 กก. | STANDARD |    120.00 บาท
+[TH002]  1.50 กก. | EXPRESS  |    150.00 บาท
+[TH003]  5.00 กก. | STANDARD |    200.00 บาท
+[TH004]  2.00 กก. | EXPRESS  |    200.00 บาท
+[TH005] 10.00 กก. | STANDARD |    400.00 บาท
+----------------------------------------
+  ยอดรวมทั้งหมด : 1,070.00 บาท        ← ต้องเห็นยอดรวมนี้
+========================================
+```
+
+---
+
+### โครงสร้างไฟล์ที่สมบูรณ์ก่อนส่ง
+
+```
+java-shipment-exercise/
+├── pom.xml
+├── src/
+│   ├── main/java/com/example/
+│   │   └── ShipmentSectionX_Exercise.java   ← Section ของตัวเอง
+│   └── test/java/com/example/
+│       └── ShipmentTest.java
+├── screenshots/
+│   ├── mvn_test_result.png                  ← ✅ ต้องมี
+│   └── program_output.png                   ← ✅ ต้องมี
+├── ExpectedOutput_SectionX.md
+└── README.md
+```
