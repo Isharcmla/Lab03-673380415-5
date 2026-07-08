@@ -59,7 +59,7 @@ java-shipment-exercise/
 > Fork แล้ว repo จะไปอยู่ใน GitHub ของตัวเอง
 
 **ตั้งชื่อ repo ให้ถูกต้อง:**
-- รูปแบบ: `lab03_67XXXXX` (แทน XXXXX ด้วยรหัสนักศึกษา 5 หลักสุดท้าย)
+- รูปแบบ: `lab03_67XXXXX` (แทน XXXXX ด้วยรหัสนักศึกษาแบบไม่มีหรือมีก็ได้)
 - ตัวอย่าง: `lab03_6712345`
 
 > ถ้าลืมตั้งชื่อตอน Fork → ไปแก้ที่ **Settings → Repository name → Rename**
