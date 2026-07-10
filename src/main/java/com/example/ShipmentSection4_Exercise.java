@@ -1,10 +1,11 @@
+package com.example;
 import java.util.ArrayList;
 import java.util.List;
 
 // ╔══════════════════════════════════════════════════════════╗
 //  SECTION 4 — แบบฝึกหัด (Exercise)
-//  ชื่อนักศึกษา : ___________________________
-//  รหัสนักศึกษา : ___________________________
+//  ชื่อนักศึกษา : นายพัชรพล กองแก้ว
+//  รหัสนักศึกษา : 673380415-5
 // ╚══════════════════════════════════════════════════════════╝
 //
 //  โจทย์:
@@ -61,7 +62,7 @@ class Shipment {
         } else {
             cost = weightKg * EXPRESS_RATE;
         }
-        return 0;  // ← ผิด ควร return cost
+        return cost;  // ← ผิด ควร return cost
     }
 
     // 👉 TODO B : toString() ยังไม่สมบูรณ์
@@ -70,7 +71,7 @@ class Shipment {
     //             แนะนำ: ใช้ String.format() และเรียก calculateCost()
     @Override
     public String toString() {
-        return "[" + trackingNumber + "] ???";  // ← เติมให้ครบ
+        return String.format("[%s] %5.2f กก. | %-8s | %8.2f บาท",trackingNumber,weightKg,type,calculateCost());  // ← เติมให้ครบ
     }
 }
 
@@ -97,7 +98,7 @@ class ShippingCompany {
     //             แก้ loop condition ให้ถูกต้อง
     public double getTotalCost() {
         double total = 0;
-        for (int i = 0; i < 1; i++) {          // ← ผิด ควรเป็น i < shipments.size()
+        for (int i = 0; i < shipments.size(); i++) {          // ← ผิด ควรเป็น i < shipments.size()
             total += shipments.get(i).calculateCost();
         }
         return total;
@@ -112,11 +113,15 @@ class ShippingCompany {
         System.out.printf ("  บริษัท        : %s%n",   name);
         System.out.printf ("  จำนวน Shipment : %d รายการ%n", shipments.size());
         System.out.println("========================================");
-
+         
         // 1) วนลูปแสดงแต่ละ shipment ตรงนี้
-
+        for (Shipment s : shipments) {
+            System.out.println(s);
+        }
         System.out.println("----------------------------------------");
         // 2) แสดงยอดรวมตรงนี้
+        System.out.printf("ยอดรวมค่าขนส่ง : %.2f บาท%n", getTotalCost());
+        System.out.println("========================================");
     }
 }
 
